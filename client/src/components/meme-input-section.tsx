@@ -134,16 +134,16 @@ export function MemeInputSection({ onResult, onError, onClear }: MemeInputSectio
 
   return (
     <section className="max-w-4xl mx-auto">
-      <Card className="bg-white dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700">
+      <Card className="bg-white shadow-lg border border-slate-200">
         <CardContent className="p-6 sm:p-8">
           
           {/* Input Method Tabs */}
-          <div className="flex space-x-1 bg-slate-100 dark:bg-slate-700 rounded-lg p-1 mb-6">
+          <div className="flex space-x-1 bg-slate-100 rounded-lg p-1 mb-6">
             <Button
               variant={inputMethod === 'url' ? 'default' : 'ghost'}
               className={`flex-1 transition-all duration-200 transform hover:scale-105 ${inputMethod === 'url' 
-                ? 'bg-white dark:bg-slate-600 text-slate-900 dark:text-white shadow-sm' 
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-600'
+                ? 'bg-white text-slate-900 shadow-sm' 
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
               }`}
               onClick={() => setInputMethod('url')}
               data-testid="button-url-tab"
@@ -154,8 +154,8 @@ export function MemeInputSection({ onResult, onError, onClear }: MemeInputSectio
             <Button
               variant={inputMethod === 'upload' ? 'default' : 'ghost'}
               className={`flex-1 transition-all duration-200 transform hover:scale-105 ${inputMethod === 'upload' 
-                ? 'bg-white dark:bg-slate-600 text-slate-900 dark:text-white shadow-sm' 
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-600'
+                ? 'bg-white text-slate-900 shadow-sm' 
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
               }`}
               onClick={() => setInputMethod('upload')}
               data-testid="button-upload-tab"
@@ -169,7 +169,7 @@ export function MemeInputSection({ onResult, onError, onClear }: MemeInputSectio
           {inputMethod === 'url' && (
             <div className="space-y-6">
               <div>
-                <Label htmlFor="memeUrl" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                <Label htmlFor="memeUrl" className="block text-sm font-medium text-slate-700 mb-2">
                   Meme URL
                 </Label>
                 <div className="relative">
@@ -186,7 +186,7 @@ export function MemeInputSection({ onResult, onError, onClear }: MemeInputSectio
                     <Globe className="w-5 h-5" />
                   </div>
                 </div>
-                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                <p className="mt-1 text-xs text-slate-500">
                   Supports images and videos from Instagram, TikTok, YouTube Shorts, Twitter, Reddit, and direct links
                 </p>
               </div>
@@ -197,11 +197,11 @@ export function MemeInputSection({ onResult, onError, onClear }: MemeInputSectio
           {inputMethod === 'upload' && (
             <div className="space-y-6">
               <div>
-                <Label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                <Label className="block text-sm font-medium text-slate-700 mb-2">
                   Upload Meme Image
                 </Label>
                 <div 
-                  className="border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-lg p-6 text-center hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-all duration-300 cursor-pointer transform hover:scale-105"
+                  className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 cursor-pointer transform hover:scale-105"
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   onClick={() => fileInputRef.current?.click()}
@@ -216,28 +216,28 @@ export function MemeInputSection({ onResult, onError, onClear }: MemeInputSectio
                     data-testid="input-file"
                   />
                   <div className="space-y-2">
-                    <Upload className="w-12 h-12 text-slate-400 dark:text-slate-500 mx-auto" />
+                    <Upload className="w-12 h-12 text-slate-400 mx-auto" />
                     <div>
                       {selectedFile ? (
                         <div className="text-sm">
-                          <span className="text-blue-600 dark:text-blue-400 font-medium">
+                          <span className="text-blue-600 font-medium">
                             {selectedFile.name}
                           </span>
-                          <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
+                          <p className="text-slate-500 text-xs mt-1">
                             {(selectedFile.size / 1024 / 1024).toFixed(2)} MB
                           </p>
                         </div>
                       ) : (
                         <>
-                          <button type="button" className="text-blue-600 dark:text-blue-400 hover:text-blue-500 font-medium">
+                          <button type="button" className="text-blue-600 hover:text-blue-500 font-medium">
                             Click to upload
                           </button>
-                          <span className="text-slate-500 dark:text-slate-400"> or drag and drop</span>
+                          <span className="text-slate-500"> or drag and drop</span>
                         </>
                       )}
                     </div>
                     {!selectedFile && (
-                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                      <p className="text-xs text-slate-500">
                         PNG, JPG, GIF, WEBP up to 10MB
                       </p>
                     )}
@@ -249,7 +249,7 @@ export function MemeInputSection({ onResult, onError, onClear }: MemeInputSectio
 
           {/* Language Selection */}
           <div>
-            <Label htmlFor="language" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+            <Label htmlFor="language" className="block text-sm font-medium text-slate-700 mb-2">
               Explanation Language
             </Label>
             <Select value={selectedLanguage} onValueChange={setSelectedLanguage}>

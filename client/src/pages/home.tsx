@@ -4,23 +4,17 @@ import { MemeResults } from "@/components/meme-results";
 import { RecentMemes } from "@/components/recent-memes";
 import { FeaturesSection } from "@/components/features-section";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Laugh } from "lucide-react";
-import { useTheme } from "@/components/theme-provider";
+import { Laugh } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { MemeExplanation } from "@shared/schema";
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
   const [currentExplanation, setCurrentExplanation] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
   const { data: recentMemes } = useQuery<MemeExplanation[]>({
     queryKey: ["/api/recent-memes"],
   });
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
 
   const handleExplanationResult = (result: any) => {
     setCurrentExplanation(result);
@@ -38,38 +32,20 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300">
       {/* Header */}
-      <header className="bg-white dark:bg-slate-800 shadow-sm border-b border-slate-200 dark:border-slate-700">
+      <header className="bg-white shadow-sm border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
+          <div className="flex justify-center items-center py-4">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
                 <Laugh className="text-white text-lg" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-slate-900 dark:text-white">Meme Explainer AI</h1>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Understand memes in any language</p>
+                <h1 className="text-xl font-bold text-slate-900">Meme Explainer AI</h1>
+                <p className="text-xs text-slate-500">Understand memes in any language</p>
               </div>
             </div>
-            
-            {/* Dark Mode Toggle */}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleTheme}
-              className="relative inline-flex items-center h-6 rounded-full w-11 bg-slate-200 dark:bg-slate-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800 border-0"
-              data-testid="button-theme-toggle"
-            >
-              <span className="sr-only">Toggle dark mode</span>
-              <span className={`inline-block w-4 h-4 transform bg-white dark:bg-slate-300 rounded-full transition-transform duration-300 ${theme === 'dark' ? 'translate-x-6' : 'translate-x-1'}`}>
-                {theme === 'light' ? (
-                  <Sun className="text-yellow-500 text-xs absolute top-0.5 left-0.5 w-3 h-3" />
-                ) : (
-                  <Moon className="text-slate-600 text-xs absolute top-0.5 left-0.5 w-3 h-3" />
-                )}
-              </span>
-            </Button>
           </div>
         </div>
       </header>
@@ -83,25 +59,25 @@ export default function Home() {
               Decode Any Meme
             </h2>
           </div>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
             Paste a meme link or upload an image, and our AI will explain the joke, cultural references, and humor in your chosen language.
           </p>
           
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 max-w-md mx-auto">
             <div className="text-center group cursor-pointer transform hover:scale-105 transition-all duration-200">
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">13</div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">Languages</div>
+              <div className="text-2xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors">13</div>
+              <div className="text-xs text-slate-500 group-hover:text-slate-600">Languages</div>
               <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-slate-400 mt-1">Including Hindi & Hinglish</div>
             </div>
             <div className="text-center group cursor-pointer transform hover:scale-105 transition-all duration-200">
-              <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">Gemini</div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">AI Powered</div>
+              <div className="text-2xl font-bold text-indigo-600 group-hover:text-indigo-700 transition-colors">Gemini</div>
+              <div className="text-xs text-slate-500 group-hover:text-slate-600">AI Powered</div>
               <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-slate-400 mt-1">Google's latest AI</div>
             </div>
             <div className="text-center group cursor-pointer transform hover:scale-105 transition-all duration-200">
-              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">Fast</div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">Analysis</div>
+              <div className="text-2xl font-bold text-purple-600 group-hover:text-purple-700 transition-colors">Fast</div>
+              <div className="text-xs text-slate-500 group-hover:text-slate-600">Analysis</div>
               <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-slate-400 mt-1">Instant explanations</div>
             </div>
           </div>
@@ -122,18 +98,18 @@ export default function Home() {
         {/* Error Section */}
         {error && (
           <section className="max-w-4xl mx-auto mt-8">
-            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-2xl p-6">
+            <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0">
-                  <svg className="w-5 h-5 text-red-600 dark:text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                  <svg className="w-5 h-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-red-900 dark:text-red-200 mb-2">
+                  <h3 className="text-lg font-medium text-red-900 mb-2">
                     Unable to Process Meme
                   </h3>
-                  <p className="text-red-700 dark:text-red-300 mb-4">
+                  <p className="text-red-700 mb-4">
                     {error}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
@@ -163,23 +139,23 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-100 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
+      <footer className="bg-slate-100 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
                 <Laugh className="text-white text-sm" />
               </div>
-              <span className="text-slate-600 dark:text-slate-400 text-sm">
+              <span className="text-slate-600 text-sm">
                 © 2024 Meme Explainer AI. Making memes accessible to everyone.
               </span>
             </div>
             
-            <div className="flex items-center space-x-6 text-sm text-slate-500 dark:text-slate-400">
-              <a href="#" className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors duration-200">Privacy</a>
-              <a href="#" className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors duration-200">Terms</a>
-              <a href="#" className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors duration-200">API</a>
-              <a href="#" className="hover:text-slate-700 dark:hover:text-slate-300 transition-colors duration-200">
+            <div className="flex items-center space-x-6 text-sm text-slate-500">
+              <a href="#" className="hover:text-slate-700 transition-colors duration-200">Privacy</a>
+              <a href="#" className="hover:text-slate-700 transition-colors duration-200">Terms</a>
+              <a href="#" className="hover:text-slate-700 transition-colors duration-200">API</a>
+              <a href="#" className="hover:text-slate-700 transition-colors duration-200">
                 <svg className="w-4 h-4 mr-1 inline-block" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
                 </svg>

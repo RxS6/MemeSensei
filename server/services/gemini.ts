@@ -39,17 +39,15 @@ ${language === 'hi-en' ? 'For Hinglish responses, mix Hindi and English naturall
 
 Your response must be in JSON format with the following structure:
 {
-  "explanation": "A clear, detailed explanation of the meme in ${targetLanguage}. Explain the visual elements, the joke, and why it's funny. Keep it conversational and easy to understand.",
-  "culturalContext": "Optional additional context about cultural references, origins, or background that would help someone understand the meme better. Only include if relevant.",
+  "explanation": "A brief, clear explanation of the meme in ${targetLanguage}. Keep it concise - 2-3 sentences maximum. Explain the joke and why it's funny in simple terms.",
+  "culturalContext": "Optional brief context about cultural references if needed. Keep it short - 1-2 sentences.",
   "confidence": "A number between 0 and 1 indicating how confident you are in this analysis"
 }
 
 Focus on:
-- What the image shows
-- The joke or humor being conveyed
-- Any cultural or internet references
-- Why this format/template is popular
-- Make it accessible to someone who might not be familiar with internet culture`;
+- The main joke or humor (keep it short)
+- Why it's funny (be concise)
+- Keep explanations brief and accessible`;
 
     const imageBytes = Buffer.from(imageBase64, 'base64');
     
