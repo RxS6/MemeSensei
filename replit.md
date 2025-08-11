@@ -37,10 +37,11 @@ Preferred communication style: Simple, everyday language.
 - **API Protection**: Session-based authentication for protected endpoints
 
 ### External Service Integrations
-- **OpenAI GPT-4 Vision**: Primary AI service for meme analysis and explanation generation
-- **Image Processing**: Base64 encoding/decoding for image data handling
+- **Google Gemini AI**: Primary AI service for meme analysis and explanation generation using Gemini 2.5 Pro
+- **Image Processing**: Base64 encoding/decoding for image data handling with support for JPEG, PNG, GIF, WEBP
 - **Multi-platform Support**: URL fetching from various social media platforms with User-Agent headers
-- **Language Support**: 12 pre-configured languages with extensible language system
+- **Language Support**: 13 languages including Hindi and Hinglish (Hindi-English mix) for Indian users
+- **Interactive UI**: Hover effects, animations, and smooth transitions throughout the interface
 
 ### Key Design Patterns
 - **Type Safety**: Shared TypeScript schemas between frontend and backend using Zod

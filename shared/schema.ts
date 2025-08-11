@@ -32,7 +32,7 @@ export const insertMemeExplanationSchema = createInsertSchema(memeExplanations).
 
 export const explainMemeRequestSchema = z.object({
   memeUrl: z.string().url().optional(),
-  language: z.string().min(2).max(5),
+  language: z.string().min(2).max(10), // Updated to support 'hi-en' for Hinglish
   fileData: z.string().optional(), // base64 encoded image data
   fileName: z.string().optional(),
 });

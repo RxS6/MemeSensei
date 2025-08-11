@@ -8,6 +8,8 @@ interface RecentMemesProps {
 
 const languageLabels: Record<string, string> = {
   en: "🇺🇸 English",
+  hi: "🇮🇳 Hindi",
+  "hi-en": "🇮🇳 Hinglish",
   es: "🇪🇸 Spanish", 
   fr: "🇫🇷 French",
   de: "🇩🇪 German",
@@ -17,7 +19,6 @@ const languageLabels: Record<string, string> = {
   ja: "🇯🇵 Japanese",
   ko: "🇰🇷 Korean",
   zh: "🇨🇳 Chinese",
-  hi: "🇮🇳 Hindi",
   ar: "🇸🇦 Arabic"
 };
 

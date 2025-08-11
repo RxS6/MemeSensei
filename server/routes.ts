@@ -2,7 +2,7 @@ import type { Express, Request } from "express";
 import { createServer, type Server } from "http";
 import multer from "multer";
 import { storage } from "./storage";
-import { analyzeMeme } from "./services/openai";
+import { analyzeMeme } from "./services/gemini";
 import { fetchMemeFromUrl, validateImageData } from "./services/meme-fetcher";
 import { explainMemeRequestSchema } from "@shared/schema";
 import { z } from "zod";

@@ -16,6 +16,8 @@ interface MemeInputSectionProps {
 
 const languages = [
   { value: "en", label: "🇺🇸 English", name: "English" },
+  { value: "hi", label: "🇮🇳 Hindi", name: "Hindi" },
+  { value: "hi-en", label: "🇮🇳 Hinglish", name: "Hinglish" },
   { value: "es", label: "🇪🇸 Spanish", name: "Spanish" },
   { value: "fr", label: "🇫🇷 French", name: "French" },
   { value: "de", label: "🇩🇪 German", name: "German" },
@@ -25,7 +27,6 @@ const languages = [
   { value: "ja", label: "🇯🇵 Japanese", name: "Japanese" },
   { value: "ko", label: "🇰🇷 Korean", name: "Korean" },
   { value: "zh", label: "🇨🇳 Chinese", name: "Chinese" },
-  { value: "hi", label: "🇮🇳 Hindi", name: "Hindi" },
   { value: "ar", label: "🇸🇦 Arabic", name: "Arabic" }
 ];
 
@@ -140,26 +141,26 @@ export function MemeInputSection({ onResult, onError, onClear }: MemeInputSectio
           <div className="flex space-x-1 bg-slate-100 dark:bg-slate-700 rounded-lg p-1 mb-6">
             <Button
               variant={inputMethod === 'url' ? 'default' : 'ghost'}
-              className={`flex-1 ${inputMethod === 'url' 
+              className={`flex-1 transition-all duration-200 transform hover:scale-105 ${inputMethod === 'url' 
                 ? 'bg-white dark:bg-slate-600 text-slate-900 dark:text-white shadow-sm' 
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-600'
               }`}
               onClick={() => setInputMethod('url')}
               data-testid="button-url-tab"
             >
-              <Link className="w-4 h-4 mr-2" />
+              <Link className="w-4 h-4 mr-2 transition-transform duration-200 group-hover:rotate-12" />
               Paste URL
             </Button>
             <Button
               variant={inputMethod === 'upload' ? 'default' : 'ghost'}
-              className={`flex-1 ${inputMethod === 'upload' 
+              className={`flex-1 transition-all duration-200 transform hover:scale-105 ${inputMethod === 'upload' 
                 ? 'bg-white dark:bg-slate-600 text-slate-900 dark:text-white shadow-sm' 
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-600'
               }`}
               onClick={() => setInputMethod('upload')}
               data-testid="button-upload-tab"
             >
-              <Upload className="w-4 h-4 mr-2" />
+              <Upload className="w-4 h-4 mr-2 transition-transform duration-200 group-hover:rotate-12" />
               Upload Image
             </Button>
           </div>
@@ -200,7 +201,7 @@ export function MemeInputSection({ onResult, onError, onClear }: MemeInputSectio
                   Upload Meme Image
                 </Label>
                 <div 
-                  className="border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-lg p-6 text-center hover:border-blue-400 dark:hover:border-blue-500 transition-colors duration-200 cursor-pointer"
+                  className="border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-lg p-6 text-center hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-all duration-300 cursor-pointer transform hover:scale-105"
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   onClick={() => fileInputRef.current?.click()}

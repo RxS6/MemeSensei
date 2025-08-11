@@ -89,17 +89,20 @@ export default function Home() {
           
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 max-w-md mx-auto">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">50+</div>
-              <div className="text-xs text-slate-500 dark:text-slate-400">Languages</div>
+            <div className="text-center group cursor-pointer transform hover:scale-105 transition-all duration-200">
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">13</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">Languages</div>
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-slate-400 mt-1">Including Hindi & Hinglish</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">AI</div>
-              <div className="text-xs text-slate-500 dark:text-slate-400">Powered</div>
+            <div className="text-center group cursor-pointer transform hover:scale-105 transition-all duration-200">
+              <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">Gemini</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">AI Powered</div>
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-slate-400 mt-1">Google's latest AI</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">Free</div>
-              <div className="text-xs text-slate-500 dark:text-slate-400">To Use</div>
+            <div className="text-center group cursor-pointer transform hover:scale-105 transition-all duration-200">
+              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">Fast</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">Analysis</div>
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs text-slate-400 mt-1">Instant explanations</div>
             </div>
           </div>
         </section>
