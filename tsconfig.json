@@ -4,8 +4,8 @@
   "compilerOptions": {
     "incremental": true,
     "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
-    "noEmit": true,
     "module": "ESNext",
+    "target": "ES2020",
     "strict": true,
     "lib": ["esnext", "dom", "dom.iterable"],
     "jsx": "preserve",
@@ -14,6 +14,8 @@
     "allowImportingTsExtensions": true,
     "moduleResolution": "bundler",
     "baseUrl": ".",
+    "outDir": "dist",
+    "rootDir": "server",
     "types": ["node", "vite/client"],
     "paths": {
       "@/*": ["./client/src/*"],
