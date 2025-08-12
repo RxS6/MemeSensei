@@ -1,19 +1,21 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import { fileURLToPath } from "url";
+
+// ES module-safe __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [
     react(),
-    // Only use Replit runtime error overlay in dev
     ...(process.env.NODE_ENV !== "production"
       ? [require("@replit/vite-plugin-runtime-error-modal").default()]
       : []),
-    // Only load Cartographer in Replit dev environment
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
-          // Dynamic import wrapped in function so it won't run on Render
           (() => {
             try {
               return require("@replit/vite-plugin-cartographer").cartographer();
